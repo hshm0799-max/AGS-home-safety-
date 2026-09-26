@@ -6,10 +6,8 @@ import {
   Menu, 
   X, 
   MapPin, 
-  Clock, 
   Award,
-  ChevronDown,
-  Sparkles
+  ChevronDown
 } from 'lucide-react';
 import { DistrictInfo } from '../types';
 
@@ -33,12 +31,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const primaryPhone = '+91 88732 32409';
   const rawPrimaryPhone = '918873232409';
-  const secondaryPhone = '+91 98765 43210';
-  const rawSecondaryPhone = '919876543210';
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      `Hello Aashish Kumar ji, I want an inquiry/free site visit for AGS Home Safety ${
+      `Hello Aashish Kumar ji, I want an inquiry/free site visit for AGS Invisible Safety Grills ${
         selectedDistrict ? `in ${selectedDistrict.name}, Bihar` : 'in Bihar'
       }. Please share catalog & price details.`
     );
@@ -47,123 +43,75 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs transition-all">
-      {/* Top Notification Bar */}
-      <div className="bg-gradient-to-r from-emerald-800 via-blue-900 to-slate-900 text-white text-xs sm:text-sm py-1.5 px-3">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full text-[11px] border border-emerald-400/30">
-              <Sparkles className="w-3 h-3" /> Bihar's #1 Safety Solution
-            </span>
-            <span className="hidden md:inline text-slate-300">|</span>
-            <span className="text-slate-200">
-              Founder & Director: <strong className="text-white font-semibold">Aashish Kumar</strong>
-            </span>
-            <span className="hidden lg:inline text-slate-300">|</span>
-            <span className="hidden lg:inline-flex items-center gap-1 text-slate-200">
-              <Clock className="w-3 h-3 text-emerald-400" /> Same-Day Free Site Visit in Patna & Hajipur
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 ml-auto text-xs">
-            <span className="text-slate-300 hidden sm:inline">24x7 Customer Helpline:</span>
-            <a 
-              href={`tel:+${rawPrimaryPhone}`} 
-              className="inline-flex items-center gap-1 font-bold text-emerald-300 hover:text-white transition-colors"
-            >
-              <Phone className="w-3 h-3" /> {primaryPhone}
-            </a>
-            <span className="text-slate-400">/</span>
-            <a 
-              href={`tel:+${rawSecondaryPhone}`} 
-              className="inline-flex items-center gap-1 font-bold text-sky-300 hover:text-white transition-colors"
-            >
-              {secondaryPhone}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-18 sm:h-20">
           
-          {/* Logo & Brand Identity */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-600 to-blue-700 flex items-center justify-center text-white shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform">
-              <ShieldCheck className="w-7 h-7" />
+          {/* Logo & Brand Identity (Clean, Single Row like Boss Invisible Safety Grills) */}
+          <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-slate-900 to-slate-800 border-2 border-amber-500/40 flex items-center justify-center text-amber-400 shadow-md group-hover:scale-105 transition-transform flex-shrink-0">
+              <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-black tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">
-                  AGS <span className="text-blue-700">HOME SAFETY</span>
-                </span>
-                <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-1.5 py-0.5 rounded-sm border border-emerald-200 uppercase">
-                  ISO 9001
+              <div className="flex items-center gap-1.5">
+                <span className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 group-hover:text-amber-600 transition-colors">
+                  AGS <span className="text-amber-600">Invisible Safety Grills</span>
                 </span>
               </div>
-              <p className="text-[11px] sm:text-xs text-slate-500 font-medium">
-                Invisible Grills • Pigeon Nets • Ceiling Dryers • <span className="text-emerald-700 font-semibold">38 Bihar Districts</span>
+              <p className="hidden sm:block text-[11px] text-slate-500 font-medium">
+                ISO Certified • SS 316 Marine Grade • Serving all 38 Districts of Bihar
               </p>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-5 text-sm font-semibold text-slate-700">
-            <a href="#services" className="hover:text-emerald-700 transition-colors">Services</a>
-            <a href="#simulator3d" className="hover:text-emerald-700 transition-colors flex items-center gap-1 text-emerald-800 font-bold">
-              3D Simulator <span className="bg-emerald-100 text-emerald-800 text-[10px] px-1.5 py-0.2 rounded-full font-bold">Live 3D</span>
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+            <a href="#services" className="hover:text-amber-600 transition-colors">Services</a>
+            <a href="#products-3d" className="hover:text-amber-600 transition-colors flex items-center gap-1 font-bold text-slate-900">
+              <span>3D Models</span>
+              <span className="bg-amber-100 text-amber-900 text-[10px] px-1.5 py-0.5 rounded-full font-bold">3D</span>
             </a>
-            <a href="#videos" className="hover:text-emerald-700 transition-colors flex items-center gap-1 text-red-700 font-bold">
-              Live Videos <span className="bg-red-100 text-red-800 text-[10px] px-1.5 py-0.2 rounded-full font-bold">▶ Test</span>
+            <a href="#calculator" className="hover:text-amber-600 transition-colors">Calculator</a>
+            <a href="#gallery" className="hover:text-amber-600 transition-colors">Gallery</a>
+            <a href="#reviews" className="hover:text-amber-600 transition-colors flex items-center gap-1">
+              <span>Reviews</span>
+              <span className="text-amber-500 font-bold">★ 4.9</span>
             </a>
-            <a href="#calculator" className="hover:text-emerald-700 transition-colors flex items-center gap-1">
-              Calculator
-            </a>
-            <a href="#gallery" className="hover:text-emerald-700 transition-colors">Gallery</a>
-            <a href="#map-coverage" className="hover:text-emerald-700 transition-colors flex items-center gap-1 font-bold text-sky-800">
-              Map 🗺️
-            </a>
-            <a href="#reviews" className="hover:text-emerald-700 transition-colors flex items-center gap-1">
-              Reviews <span className="text-amber-500 font-bold">★ 4.9</span>
-            </a>
-            <a href="#districts" className="hover:text-emerald-700 transition-colors">38 Districts</a>
-            <a href="#faqs" className="hover:text-emerald-700 transition-colors">FAQs</a>
+            <a href="#districts" className="hover:text-amber-600 transition-colors">38 Districts</a>
+            <a href="#faqs" className="hover:text-amber-600 transition-colors">FAQs</a>
 
             {/* District Quick Selector Dropdown */}
             <div className="relative">
               <button
                 type="button"
                 onClick={() => setDistrictDropdownOpen(!districtDropdownOpen)}
-                className="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300 transition-colors"
+                className="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-300 transition-colors cursor-pointer"
               >
                 <MapPin className="w-3.5 h-3.5 text-emerald-600" />
-                <span>{selectedDistrict ? `${selectedDistrict.name} (Bihar)` : 'Select District'}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                <span>{selectedDistrict ? selectedDistrict.name : 'Bihar'}</span>
+                <ChevronDown className="w-3 h-3 text-slate-500" />
               </button>
 
               {districtDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-72 max-h-96 bg-white rounded-xl shadow-2xl border border-slate-200 py-2 overflow-y-auto z-50">
-                  <div className="px-3 py-1.5 border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                    Select Your Bihar District (38 Districts)
+                <div className="absolute right-0 mt-2 w-64 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-2xl border border-slate-200 p-2 z-50">
+                  <div className="p-2 border-b border-slate-100 text-xs font-bold text-slate-500">
+                    Select Your Bihar District
                   </div>
-                  {districts.map((dist) => (
+                  {districts.map((d) => (
                     <button
-                      key={dist.id}
+                      key={d.id}
                       type="button"
                       onClick={() => {
-                        onSelectDistrict(dist);
+                        onSelectDistrict(d);
                         setDistrictDropdownOpen(false);
                       }}
-                      className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between hover:bg-emerald-50 transition-colors ${
-                        selectedDistrict?.id === dist.id ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-700'
+                      className={`w-full text-left px-3 py-2 text-xs rounded-xl flex items-center justify-between transition-colors ${
+                        selectedDistrict?.id === d.id
+                          ? 'bg-amber-500 text-slate-950 font-bold'
+                          : 'hover:bg-slate-100 text-slate-800'
                       }`}
                     >
-                      <span>
-                        {dist.name} <span className="text-slate-400 font-normal">({dist.hindiName})</span>
-                      </span>
-                      <span className="text-[10px] text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">
-                        {dist.deliveryTime.includes('Same') ? '⚡ Fast' : '24h'}
-                      </span>
+                      <span>{d.name} ({d.hindiName})</span>
+                      <span className="text-[10px] text-slate-400 font-semibold">{d.deliveryTime.includes('Same') ? '⚡ Today' : '24h'}</span>
                     </button>
                   ))}
                 </div>
@@ -171,141 +119,105 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </nav>
 
-          {/* Desktop Right CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <button
-              type="button"
-              onClick={handleWhatsAppClick}
-              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-md shadow-emerald-600/20 hover:shadow-lg transition-all"
-            >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>WhatsApp Chat</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all"
-            >
-              <Award className="w-4 h-4 text-amber-400" />
-              <span>Free Site Inspection</span>
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <button
-              type="button"
-              onClick={handleWhatsAppClick}
-              className="p-2 rounded-lg bg-emerald-100 text-emerald-800"
-              aria-label="WhatsApp"
-            >
-              <MessageCircle className="w-5 h-5 fill-emerald-700" />
-            </button>
+          {/* Right Action Buttons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            
+            {/* Call Button (Desktop) */}
             <a
               href={`tel:+${rawPrimaryPhone}`}
-              className="p-2 rounded-lg bg-blue-100 text-blue-800"
-              aria-label="Call Now"
+              className="hidden md:inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm border border-slate-700 transition-all shadow-sm"
             >
-              <Phone className="w-5 h-5 text-blue-700" />
+              <Phone className="w-4 h-4 text-amber-400" />
+              <span>{primaryPhone}</span>
             </a>
+
+            {/* WhatsApp Button */}
+            <button
+              type="button"
+              onClick={handleWhatsAppClick}
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span className="hidden sm:inline">WhatsApp</span>
+            </button>
+
+            {/* Mobile Hamburger Toggle (Clean icon like Boss Invisible Grill) */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-              aria-label="Toggle Menu"
+              className="lg:hidden p-2 rounded-xl text-slate-800 hover:bg-slate-100 border border-slate-300 transition-colors"
+              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
+
           </div>
 
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-4 shadow-xl animate-in slide-in-from-top">
-          {/* Owner Details Card */}
-          <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
-            <div>
-              <p className="text-xs text-slate-500">Founder & Director</p>
-              <p className="text-sm font-bold text-slate-900">Aashish Kumar</p>
-            </div>
-            <div className="text-right">
-              <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-200">
-                All 38 Bihar Districts
-              </span>
-            </div>
-          </div>
-
-          {/* District Selector for Mobile */}
-          <div>
-            <label className="block text-xs font-bold text-slate-500 mb-1">
-              Select Your District in Bihar:
-            </label>
+        <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-2 duration-200">
+          
+          {/* District selector on mobile */}
+          <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center justify-between">
+            <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+              Serving: <strong className="text-slate-900">{selectedDistrict?.name || 'All Bihar'}</strong>
+            </span>
             <select
               value={selectedDistrict?.id || ''}
               onChange={(e) => {
                 const found = districts.find(d => d.id === e.target.value);
                 if (found) onSelectDistrict(found);
               }}
-              className="w-full bg-slate-100 border border-slate-300 text-slate-800 rounded-lg p-2.5 text-sm font-semibold"
+              className="bg-white border border-slate-300 rounded-lg text-xs font-bold text-amber-600 p-1.5 focus:outline-none"
             >
-              {districts.map(d => (
+              {districts.map((d) => (
                 <option key={d.id} value={d.id}>
-                  {d.name} ({d.hindiName}) - {d.deliveryTime}
+                  {d.name} ({d.deliveryTime.includes('Same') ? '⚡ Same-Day' : '24h'})
                 </option>
               ))}
             </select>
           </div>
 
-          {/* Nav Links */}
-          <div className="flex flex-col gap-2 font-medium text-slate-700 text-sm">
+          <nav className="flex flex-col gap-2 pt-2 text-sm font-semibold text-slate-800">
             <a 
               href="#services" 
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg hover:bg-slate-100"
             >
-              Services (Invisible Grills, Bird Nets, Ceiling Hangers)
+              Our Safety Services
             </a>
             <a 
-              href="#simulator3d" 
+              href="#products-3d" 
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-emerald-50 text-emerald-800 font-bold flex items-center justify-between"
+              className="px-3 py-2 rounded-lg hover:bg-slate-100 font-bold text-amber-600 flex items-center justify-between"
             >
-              <span>Live 3D Invisible Grill Simulator</span>
-              <span className="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Try 3D</span>
-            </a>
-            <a 
-              href="#videos" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-red-50 text-red-700 font-bold flex items-center justify-between"
-            >
-              <span>Live Video Demonstrations (800kg Test)</span>
-              <span className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Watch</span>
+              <span>3D Models & Specs</span>
+              <span className="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">16 Models</span>
             </a>
             <a 
               href="#calculator" 
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-slate-100 text-emerald-700 font-bold flex items-center justify-between"
+              className="px-3 py-2 rounded-lg hover:bg-slate-100"
             >
-              <span>Instant Cost Calculator</span>
-              <span className="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Free Estimate</span>
-            </a>
-            <a 
-              href="#map-coverage" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-sky-50 text-sky-800 font-bold flex items-center justify-between"
-            >
-              <span>Bihar Network Map 🗺️ (38 Districts)</span>
-              <span className="text-xs bg-sky-100 text-sky-800 px-2 py-0.5 rounded">View Map</span>
+              Instant Cost Calculator
             </a>
             <a 
               href="#gallery" 
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg hover:bg-slate-100"
             >
-              Work Gallery (Real Site Photos)
+              Actual Installations Gallery
+            </a>
+            <a 
+              href="#reviews" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg hover:bg-slate-100"
+            >
+              Customer Reviews (4.9★)
             </a>
             <a 
               href="#districts" 
@@ -315,80 +227,35 @@ export const Navbar: React.FC<NavbarProps> = ({
               Bihar 38 Districts Service Network
             </a>
             <a 
-              href="#reviews" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-lg hover:bg-slate-100"
-            >
-              Google Reviews (4.9 / 5 Stars)
-            </a>
-            <a 
               href="#faqs" 
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg hover:bg-slate-100"
             >
               Frequently Asked Questions
             </a>
-          </div>
+          </nav>
 
-          {/* Policy Links */}
-          <div className="pt-2 border-t border-slate-200 flex flex-wrap gap-2 text-xs text-slate-500">
-            <button 
-              type="button" 
-              onClick={() => { onOpenPolicy('warranty'); setMobileMenuOpen(false); }}
-              className="underline"
+          <div className="pt-3 border-t border-slate-200 space-y-2">
+            <a
+              href={`tel:+${rawPrimaryPhone}`}
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-amber-500 text-slate-950 font-black py-3 rounded-xl text-sm"
             >
-              10-Yr Warranty
-            </button>
-            <span>•</span>
-            <button 
-              type="button" 
-              onClick={() => { onOpenPolicy('terms'); setMobileMenuOpen(false); }}
-              className="underline"
-            >
-              Terms & Conditions
-            </button>
-            <span>•</span>
-            <button 
-              type="button" 
-              onClick={() => { onOpenPolicy('privacy'); setMobileMenuOpen(false); }}
-              className="underline"
-            >
-              Privacy Policy
-            </button>
-            <span>•</span>
-            <button 
-              type="button" 
-              onClick={() => { onOpenPolicy('refund'); setMobileMenuOpen(false); }}
-              className="underline"
-            >
-              Refund Policy
-            </button>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="grid grid-cols-2 gap-2 pt-2">
+              <Phone className="w-4 h-4 fill-slate-950" />
+              <span>Call {primaryPhone}</span>
+            </a>
             <button
               type="button"
               onClick={() => {
-                onOpenBooking();
                 setMobileMenuOpen(false);
+                onOpenBooking('Free Site Visit');
               }}
-              className="w-full bg-slate-900 text-white font-bold text-xs py-3 rounded-xl shadow-md text-center"
+              className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl text-sm"
             >
-              Free Inspection
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                handleWhatsAppClick();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full bg-emerald-600 text-white font-bold text-xs py-3 rounded-xl shadow-md text-center flex items-center justify-center gap-1.5"
-            >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              WhatsApp
+              <Award className="w-4 h-4 text-amber-400" />
+              <span>Book Free On-Site Inspection</span>
             </button>
           </div>
+
         </div>
       )}
     </header>

@@ -28,8 +28,6 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   const primaryPhone = '+91 88732 32409';
   const rawPrimary = '918873232409';
-  const secondaryPhone = '+91 98765 43210';
-  const rawSecondary = '919876543210';
 
   return (
     <footer className="bg-slate-950 text-slate-300 pt-16 pb-28 sm:pb-16 border-t border-slate-800 text-xs sm:text-sm">
@@ -63,10 +61,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a href={`tel:+${rawPrimary}`} className="font-bold text-white hover:text-emerald-400">
                   {primaryPhone}
-                </a>
-                <span className="text-slate-500">/</span>
-                <a href={`tel:+${rawSecondary}`} className="font-bold text-sky-400 hover:text-white">
-                  {secondaryPhone}
                 </a>
               </div>
 

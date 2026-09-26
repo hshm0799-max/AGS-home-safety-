@@ -118,7 +118,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs text-emerald-900 text-left space-y-1">
               <p><strong>District:</strong> {formData.district}, Bihar</p>
               <p><strong>Service:</strong> {formData.serviceType}</p>
-              <p><strong>Helpline:</strong> +91 88732 32409 / +91 98765 43210</p>
+              <p><strong>Helpline:</strong> +91 88732 32409</p>
             </div>
 
             <div className="pt-2 flex gap-3">
@@ -157,7 +157,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <input
                   type="tel"
                   required
-                  placeholder="e.g. 9876543210"
+                  placeholder="e.g. 9123456789"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 font-medium"
@@ -261,7 +261,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </button>
 
             <p className="text-[11px] text-center text-slate-400">
-              Or call directly anytime: <a href="tel:+918873232409" className="text-emerald-700 font-bold hover:underline">+91 88732 32409</a> / <a href="tel:+919876543210" className="text-sky-700 font-bold hover:underline">+91 98765 43210</a>
+              Or call directly anytime: <a href="tel:+918873232409" className="text-emerald-700 font-bold hover:underline">+91 88732 32409</a>
             </p>
           </form>
         )}

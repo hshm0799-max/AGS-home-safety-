@@ -6,6 +6,7 @@ import { DistrictInfo } from './types';
 import { Navbar } from './components/Navbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { Hero } from './components/Hero';
+import { Spatial3DProductSuite } from './components/Spatial3DProductSuite';
 import { BeforeAfterSlider } from './components/BeforeAfterSlider';
 import { LiveSimulator3D } from './components/LiveSimulator3D';
 import { VideoDemosSection } from './components/VideoDemosSection';
@@ -64,16 +65,22 @@ export default function App() {
         districts={BIHAR_DISTRICTS}
       />
 
-      {/* Live Continuous Marquee Installation Ticker */}
-      <MarqueeTicker />
-
       <main className="flex-1">
-        {/* Full-bleed Hero Background Slideshow styled like Boss Invisible Grill */}
+        {/* Full-bleed Hero with Cinematic Animation Background Photos of Invisible Grills */}
         <Hero
           selectedDistrict={selectedDistrict}
           onOpenBooking={handleOpenBooking}
           onSelectDistrict={handleSelectDistrict}
           districts={BIHAR_DISTRICTS}
+        />
+
+        {/* Live Continuous Marquee Installation Ticker */}
+        <MarqueeTicker />
+
+        {/* Interactive 3D Spatial Product Suite with Depth Tilt, Technical Specs & Calculator */}
+        <Spatial3DProductSuite
+          selectedDistrict={selectedDistrict}
+          onOpenBooking={handleOpenBooking}
         />
 
         {/* Interactive Before & After Balcony Comparison Slider */}

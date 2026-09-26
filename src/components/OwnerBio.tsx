@@ -14,8 +14,6 @@ import {
 export const OwnerBio: React.FC = () => {
   const primaryPhone = '+91 88732 32409';
   const rawPrimary = '918873232409';
-  const secondaryPhone = '+91 98765 43210';
-  const rawSecondary = '919876543210';
 
   const handleOwnerWhatsApp = () => {
     const text = encodeURIComponent(
@@ -102,13 +100,6 @@ export const OwnerBio: React.FC = () => {
                 >
                   <Phone className="w-4 h-4 text-emerald-400" />
                   <span>Call {primaryPhone}</span>
-                </a>
-
-                <a
-                  href={`tel:+${rawSecondary}`}
-                  className="inline-flex items-center gap-1.5 text-xs text-sky-300 hover:underline px-2 py-1"
-                >
-                  <span>Alt: {secondaryPhone}</span>
                 </a>
               </div>
 

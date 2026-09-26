@@ -39,7 +39,7 @@ export const COMPANY_POLICIES = {
       },
       {
         heading: '3. Communication & Consent',
-        content: 'By submitting an inquiry or contacting us via WhatsApp or Phone at +91 88732 32409 / +91 98765 43210, you consent to receive direct service updates, quotes, and customer support communications from AGS Home Safety.',
+        content: 'By submitting an inquiry or contacting us via WhatsApp or Phone at +91 88732 32409, you consent to receive direct service updates, quotes, and customer support communications from AGS Home Safety.',
       },
       {
         heading: '4. Data Security & Storage',

@@ -3,24 +3,23 @@ import {
   Phone, 
   MessageCircle, 
   Image as ImageIcon, 
-  Check, 
-  Star, 
-  ShieldCheck, 
+  MapPin, 
   ChevronLeft, 
   ChevronRight, 
-  MapPin, 
+  ShieldCheck, 
+  Award, 
   Sparkles,
-  Award,
-  Bot
+  ArrowDown
 } from 'lucide-react';
 import { DistrictInfo } from '../types';
 
+// Real High-Resolution Invisible Grill Installation Images for Cinematic Animation
 import heroGrillImg from '../assets/images/invisible_grill_hero_1790433348448.jpg';
 import sunsetBalconyImg from '../assets/images/balcony_sunset_view_1790434251681.jpg';
-import technicianImg from '../assets/images/technician_installing_grill_1790434273306.jpg';
-import clothHangerImg from '../assets/images/cloth_hanger_balcony_1790433378816.jpg';
-import pigeonNetImg from '../assets/images/pigeon_safety_net_1790433398792.jpg';
-import balconyNetImg from '../assets/images/balcony_safety_net_1790433417950.jpg';
+import nightBalconyImg from '../assets/images/night_balcony_grill_1790435104043.jpg';
+import curvedBalconyImg from '../assets/images/curved_balcony_grill_1790435076464.jpg';
+import highriseFacadeImg from '../assets/images/highrise_facade_grill_1790434717531.jpg';
+import windowGrillImg from '../assets/images/window_invisible_grill_1790434683120.jpg';
 
 interface HeroProps {
   selectedDistrict: DistrictInfo | null;
@@ -35,103 +34,100 @@ export const Hero: React.FC<HeroProps> = ({
   onSelectDistrict,
   districts,
 }) => {
+  // Single verified primary phone number
   const primaryPhone = '+91 88732 32409';
   const rawPrimaryPhone = '918873232409';
-  const secondaryPhone = '+91 98765 43210';
-  const rawSecondaryPhone = '919876543210';
 
-  // Slideshow images with localized titles & captions
-  const slides = [
+  // 6 Cinematic Invisible Grill Background Slides
+  const cinematicSlides = [
     {
+      id: 1,
       image: heroGrillImg,
-      subtitle: 'SS 316 Marine Grade Invisible Grills',
-      badge: 'Patna High-Rise Installation',
+      caption: 'SS 316 Marine Invisible Grill • Luxury High-Rise Balcony',
+      badge: 'Patna Luxury Apartments',
     },
     {
+      id: 2,
       image: sunsetBalconyImg,
-      subtitle: 'Unobstructed Panoramic Sunset Balcony View',
+      caption: 'Panoramic Sunset Balcony • 100% Unobstructed City View',
       badge: 'Zero View Obstruction',
     },
     {
-      image: technicianImg,
-      subtitle: 'Certified Diamond Precision Laser Installation',
-      badge: 'Skilled Safety Engineers',
+      id: 3,
+      image: nightBalconyImg,
+      caption: 'Evening Balcony Corridor • Warm Downlights & Night City View',
+      badge: 'Reflective SS 316',
     },
     {
-      image: clothHangerImg,
-      subtitle: 'Pull & Dry 6-Pipe Ceiling Cloth Drying Hangers',
-      badge: '100% Floor Space Free',
+      id: 4,
+      image: curvedBalconyImg,
+      caption: 'Curved Balcony Invisible Grill • Custom CNC Aluminium Tracks',
+      badge: 'Custom Curved Fit',
     },
     {
-      image: pigeonNetImg,
-      subtitle: 'Garware Virgin HDPE Anti-Bird & Pigeon Nets',
-      badge: '100% Pigeon Free Homes',
+      id: 5,
+      image: highriseFacadeImg,
+      caption: 'Multi-Floor High-Rise Facade • Storm Wind Tested 140 km/h',
+      badge: 'High-Rise Certified',
     },
     {
-      image: balconyNetImg,
-      subtitle: 'Balcony Children & Pet High-Tensile Safety Netting',
-      badge: '150+ KG Load Certified',
+      id: 6,
+      image: windowGrillImg,
+      caption: 'Modern Window Invisible Safety Grill • Emergency 3s Fire Rescue',
+      badge: 'Emergency Ready',
     },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-advance slideshow
+  // Auto slide rotation every 6 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5500);
+      setCurrentSlide((prev) => (prev + 1) % cinematicSlides.length);
+    }, 6000);
     return () => clearInterval(timer);
-  }, [slides.length]);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [cinematicSlides.length]);
 
   const handleWhatsApp = () => {
+    const districtName = selectedDistrict ? selectedDistrict.name : 'Bihar';
     const text = encodeURIComponent(
-      `Hello Aashish Kumar ji, I want a Free Quote & Site Inspection for AGS Invisible Grills / Safety Nets in ${
-        selectedDistrict ? selectedDistrict.name : 'Bihar'
-      }. Please share rate list.`
+      `Hello Aashish Kumar ji, I want a Free Quote & Site Inspection for Invisible Safety Grills in ${districtName}. Please share price per sq ft and technician visit availability.`
     );
     window.open(`https://wa.me/${rawPrimaryPhone}?text=${text}`, '_blank');
   };
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-[92vh] flex items-center justify-center text-white overflow-hidden bg-slate-950">
+    <section className="relative min-h-[92vh] sm:min-h-[94vh] flex flex-col justify-between text-white overflow-hidden bg-slate-950">
       
-      {/* Background Slideshow Layer */}
-      {slides.map((slide, idx) => (
+      {/* 1. Cinematic Animation Background Images Layer */}
+      {cinematicSlides.map((slide, idx) => (
         <div
-          key={idx}
+          key={slide.id}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+            idx === currentSlide 
+              ? 'opacity-100 z-0' 
+              : 'opacity-0 pointer-events-none -z-10'
           }`}
-          style={{ transitionProperty: 'opacity, transform' }}
         >
           <img
             src={slide.image}
-            alt={slide.subtitle}
-            className="w-full h-full object-cover object-center filter brightness-[0.42] contrast-[1.08]"
+            alt={slide.caption}
+            className={`w-full h-full object-cover object-center filter brightness-[0.55] contrast-[1.08] saturate-[1.15] ${
+              idx === currentSlide ? 'animate-cinematic-bg' : ''
+            }`}
           />
         </div>
       ))}
 
-      {/* Modern Gradient Overlays for High Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-900/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-slate-950/80 pointer-events-none" />
+      {/* 2. Measured Contrast Vignette & Dark Gradient Scrims (Ensures text is crisp while background is cinematic) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/40 to-slate-950/80 pointer-events-none" />
 
-      {/* Foreground Content Container */}
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 py-12 lg:py-16 text-center flex flex-col items-center justify-center">
-        
-        {/* District Switcher Pill */}
-        <div className="mb-4 inline-flex items-center gap-2 bg-slate-900/85 backdrop-blur-md border border-slate-700/80 rounded-full px-4 py-1.5 shadow-xl">
-          <span className="flex h-2.5 w-2.5 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span className="text-xs font-semibold text-slate-300">
-            Serving: <strong className="text-emerald-400">{selectedDistrict ? `${selectedDistrict.name} (${selectedDistrict.hindiName})` : 'All 38 Districts of Bihar'}</strong>
-          </span>
+      {/* Top District Bar over Hero */}
+      <div className="relative z-20 w-full max-w-4xl mx-auto px-4 pt-4 sm:pt-6 flex items-center justify-between">
+        <div className="inline-flex items-center gap-2 bg-slate-900/85 backdrop-blur-md border border-slate-700/80 rounded-full px-3.5 py-1 text-xs font-semibold text-slate-300 shadow-lg">
+          <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+          <span>Serving: <strong className="text-emerald-400">{selectedDistrict ? `${selectedDistrict.name} (${selectedDistrict.hindiName})` : 'All 38 Districts of Bihar'}</strong></span>
           <span className="text-slate-500">|</span>
           <select
             value={selectedDistrict?.id || ''}
@@ -139,111 +135,107 @@ export const Hero: React.FC<HeroProps> = ({
               const found = districts.find(d => d.id === e.target.value);
               if (found) onSelectDistrict(found);
             }}
-            className="bg-transparent text-xs font-bold text-amber-300 focus:outline-none cursor-pointer"
+            className="bg-transparent text-xs font-bold text-amber-400 focus:outline-none cursor-pointer"
           >
             {districts.map((d) => (
               <option key={d.id} value={d.id} className="bg-slate-900 text-white">
-                {d.name} ({d.deliveryTime.includes('Same') ? '⚡ Same Day' : '24h'})
+                {d.name} ({d.deliveryTime.includes('Same') ? '⚡ Same-Day' : '24h'})
               </option>
             ))}
           </select>
         </div>
 
-        {/* Current Slide Badge */}
-        <div className="mb-3">
-          <span className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-400/40 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
-            {slides[currentSlide].badge}
-          </span>
+        {/* Current Active Photo Tag */}
+        <div className="hidden sm:inline-flex items-center gap-1.5 bg-slate-900/80 backdrop-blur-md border border-slate-700/80 rounded-full px-3 py-1 text-xs font-bold text-amber-400">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>{cinematicSlides[currentSlide].badge}</span>
         </div>
+      </div>
 
-        {/* Main Headline (Styled after Boss Invisible Grill with golden/amber contrast) */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] max-w-3xl">
-          Premium <span className="text-amber-400 drop-shadow-[0_2px_15px_rgba(251,191,36,0.4)]">Invisible Safety Grills</span> in {selectedDistrict ? selectedDistrict.name : 'Bihar'}
+      {/* 3. Center Hero Content (Exact Boss Invisible Grill Layout from Screenshot) */}
+      <div className="relative z-20 max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-center flex flex-col items-center justify-center my-auto">
+        
+        {/* Main Title (Amber/Golden Accent on 'Invisible Safety Grills') */}
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.14] drop-shadow-lg">
+          Premium <span className="text-amber-400 drop-shadow-[0_2px_25px_rgba(251,191,36,0.6)]">Invisible Safety Grills</span> in {selectedDistrict ? selectedDistrict.name : 'Bihar'}
         </h1>
 
         {/* Hindi Tagline */}
-        <p className="mt-2 text-sm sm:text-base font-semibold text-emerald-300 max-w-2xl">
+        <p className="mt-3 text-sm sm:text-lg font-bold text-emerald-300 drop-shadow-md">
           सुंदर बालकनी, 100% निर्बाध दृश्य और बच्चों-पालतू जानवरों की पूर्ण सुरक्षा
         </p>
 
-        {/* Body Description */}
-        <p className="mt-4 text-xs sm:text-base text-slate-200 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
-          Protect your family with Bihar's most trusted invisible grill & safety netting service. SS316 nylon-coated marine-grade steel cables, rust-proof, child-safe, and virtually invisible from every angle.
+        {/* Subtitle / Paragraph (From Boss Invisible Grill reference) */}
+        <p className="mt-3 text-xs sm:text-base text-slate-200 leading-relaxed max-w-2xl font-normal drop-shadow">
+          Protect your family with Bihar's most trusted invisible grill installation service. SS316 nylon-coated marine-grade steel, rust-proof, child-safe, and virtually invisible from every angle.
         </p>
 
-        {/* Free Quote Phone Highlight */}
-        <div className="mt-6 flex items-center gap-2 text-base sm:text-xl font-bold bg-slate-900/80 border border-slate-700/80 px-5 py-2.5 rounded-2xl shadow-lg backdrop-blur-md">
+        {/* Free Quote Single Phone Line (Exact layout from Screenshot 2) */}
+        <div className="mt-6 flex items-center justify-center gap-2 text-base sm:text-xl font-bold text-white drop-shadow">
           <Phone className="w-5 h-5 text-amber-400 animate-bounce" />
-          <span className="text-slate-300 text-sm sm:text-base font-medium">Free Quote:</span>
+          <span className="text-slate-300 font-semibold">Free Quote:</span>
           <a 
             href={`tel:+${rawPrimaryPhone}`} 
             className="text-amber-400 hover:text-amber-300 transition-colors tracking-tight font-black"
           >
             {primaryPhone}
           </a>
-          <span className="text-slate-500 hidden sm:inline">/</span>
-          <a 
-            href={`tel:+${rawSecondaryPhone}`} 
-            className="text-sky-300 hover:text-white transition-colors tracking-tight font-black hidden sm:inline"
-          >
-            {secondaryPhone}
-          </a>
         </div>
 
-        {/* Stacked Primary Touch Action Buttons (Exact style from screenshot) */}
+        {/* Stacked Primary Touch Action Buttons (Matching Screenshot: Call, WhatsApp, Free Enquiry) */}
         <div className="mt-6 w-full max-w-md space-y-3">
           
-          {/* 1. Call Button (Amber/Gold Solid) */}
+          {/* 1. Call Icon Button (Solid Amber/Gold Button) */}
           <a
             href={`tel:+${rawPrimaryPhone}`}
-            className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-500 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-xl shadow-amber-500/25 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-base sm:text-lg"
+            className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-xl shadow-amber-500/25 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-base sm:text-lg"
           >
             <Phone className="w-5 h-5 fill-slate-950" />
             <span>Call {primaryPhone}</span>
           </a>
 
-          {/* 2. WhatsApp Button (Rich Green Solid) */}
+          {/* 2. WhatsApp Icon Button (Rich Solid Emerald Green Button) */}
           <button
             type="button"
             onClick={handleWhatsApp}
-            className="w-full flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-2xl shadow-xl shadow-emerald-600/30 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-base sm:text-lg"
+            className="w-full flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-2xl shadow-xl shadow-emerald-600/30 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-base sm:text-lg cursor-pointer"
           >
             <MessageCircle className="w-5 h-5 fill-white" />
             <span>WhatsApp Us</span>
           </button>
 
-          {/* 3. View Our Work Button (Dark Bordered Transparent) */}
-          <a
-            href="#gallery"
-            className="w-full flex items-center justify-center gap-2.5 bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white font-bold py-3.5 px-6 rounded-2xl border-2 border-slate-600 hover:border-slate-400 transition-all text-sm sm:text-base backdrop-blur-md"
-          >
-            <ImageIcon className="w-5 h-5 text-sky-400" />
-            <span>View Our Work Gallery</span>
-          </a>
-
-          {/* 4. Book Free Measurement Inspection Button */}
+          {/* 3. Enquiry Free Icon Button (High-Contrast Sky/Teal Button with ClipboardCheck Icon) */}
           <button
             type="button"
             onClick={() => onOpenBooking('SS 316 Invisible Grills')}
-            className="w-full text-center text-xs font-bold text-amber-300 hover:text-amber-200 underline pt-1"
+            className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-sky-600 via-cyan-600 to-blue-600 hover:from-sky-500 hover:to-cyan-500 text-white font-black py-4 px-6 rounded-2xl shadow-xl shadow-sky-600/25 hover:shadow-2xl transition-all transform hover:-translate-y-0.5 text-base sm:text-lg cursor-pointer border border-sky-400/30"
           >
-            Or Schedule 100% Free On-Site Inspection & Sample Demo →
+            <Award className="w-5 h-5 text-amber-300" />
+            <span>Enquiry Free (निःशुल्क पूछताछ)</span>
           </button>
+
+          {/* Secondary Gallery & 3D Models Button */}
+          <a
+            href="#products-3d"
+            className="w-full flex items-center justify-center gap-2 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold py-2.5 px-4 rounded-xl border border-slate-700/80 transition-all text-xs sm:text-sm backdrop-blur-md"
+          >
+            <ImageIcon className="w-4 h-4 text-amber-400" />
+            <span>View All Real Photos & 3D Interactive Models →</span>
+          </a>
         </div>
 
-        {/* Trust Badges (From bossinvisiblegrill screenshot with Mascot) */}
-        <div className="mt-8 pt-6 border-t border-slate-800/80 w-full max-w-xl flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs sm:text-sm font-semibold text-slate-200">
+        {/* Trust Proof Metrics (Exact row from Screenshot 2 with yellow checkmarks) */}
+        <div className="mt-8 pt-6 border-t border-slate-800/80 w-full max-w-lg flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs sm:text-sm font-semibold text-slate-200 drop-shadow">
           <div className="flex items-center gap-1.5">
-            <span className="text-emerald-400 font-black">✓</span>
+            <span className="text-amber-400 font-black">✓</span>
             <span>5,000+ Installations</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-emerald-400 font-black">✓</span>
+            <span className="text-amber-400 font-black">✓</span>
             <span>10+ Years Experience</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-emerald-400 font-black">✓</span>
+            <span className="text-amber-400 font-black">✓</span>
             <span>10-15 Year Warranty</span>
           </div>
           <div className="flex items-center gap-1.5">
@@ -252,43 +244,24 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        {/* Carousel Slide Pagination Dots (From bossinvisiblegrill screenshot) */}
-        <div className="mt-6 flex items-center gap-2">
-          {slides.map((_, dotIdx) => (
-            <button
-              key={dotIdx}
-              type="button"
-              onClick={() => setCurrentSlide(dotIdx)}
-              className={`transition-all duration-300 rounded-full ${
-                dotIdx === currentSlide
-                  ? 'w-7 h-2.5 bg-amber-400 shadow-sm'
-                  : 'w-2.5 h-2.5 bg-slate-600 hover:bg-slate-400'
-              }`}
-              aria-label={`Go to slide ${dotIdx + 1}`}
-            />
-          ))}
-        </div>
+      </div>
 
-        {/* Slide Next / Prev Controls */}
-        <div className="hidden sm:flex absolute inset-y-0 left-4 right-4 z-10 items-center justify-between pointer-events-none">
+      {/* 4. Bottom Slider Pagination Dots (Exact from Screenshot 2) */}
+      <div className="relative z-20 pb-5 pt-2 flex items-center justify-center gap-2">
+        {cinematicSlides.map((_, dotIdx) => (
           <button
+            key={dotIdx}
             type="button"
-            onClick={prevSlide}
-            className="pointer-events-auto p-2.5 rounded-full bg-slate-900/60 hover:bg-slate-800/90 text-white backdrop-blur-md border border-slate-700 transition-colors"
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            type="button"
-            onClick={nextSlide}
-            className="pointer-events-auto p-2.5 rounded-full bg-slate-900/60 hover:bg-slate-800/90 text-white backdrop-blur-md border border-slate-700 transition-colors"
-            aria-label="Next Slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
+            onClick={() => setCurrentSlide(dotIdx)}
+            className={`transition-all duration-300 rounded-full cursor-pointer ${
+              dotIdx === currentSlide
+                ? 'w-7 h-2.5 bg-amber-400 shadow-md shadow-amber-400/50'
+                : 'w-2.5 h-2.5 bg-slate-600/80 hover:bg-slate-400'
+            }`}
+            title={`Slide ${dotIdx + 1}`}
+            aria-label={`Go to slide ${dotIdx + 1}`}
+          />
+        ))}
       </div>
 
     </section>
